@@ -1,0 +1,17 @@
+C:\Users\joaom\OneDrive\Área de Trabalho\trabalho\trabalho\bin\Debug\net6.0-windows\trabalho.exe
+C:\Users\joaom\OneDrive\Área de Trabalho\trabalho\trabalho\bin\Debug\net6.0-windows\trabalho.deps.json
+C:\Users\joaom\OneDrive\Área de Trabalho\trabalho\trabalho\bin\Debug\net6.0-windows\trabalho.runtimeconfig.json
+C:\Users\joaom\OneDrive\Área de Trabalho\trabalho\trabalho\bin\Debug\net6.0-windows\trabalho.dll
+C:\Users\joaom\OneDrive\Área de Trabalho\trabalho\trabalho\bin\Debug\net6.0-windows\trabalho.pdb
+C:\Users\joaom\OneDrive\Área de Trabalho\trabalho\trabalho\obj\Debug\net6.0-windows\trabalho.vbproj.AssemblyReference.cache
+C:\Users\joaom\OneDrive\Área de Trabalho\trabalho\trabalho\obj\Debug\net6.0-windows\trabalho.Form1.resources
+C:\Users\joaom\OneDrive\Área de Trabalho\trabalho\trabalho\obj\Debug\net6.0-windows\trabalho.vbproj.GenerateResource.cache
+C:\Users\joaom\OneDrive\Área de Trabalho\trabalho\trabalho\obj\Debug\net6.0-windows\trabalho.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joaom\OneDrive\Área de Trabalho\trabalho\trabalho\obj\Debug\net6.0-windows\trabalho.AssemblyInfoInputs.cache
+C:\Users\joaom\OneDrive\Área de Trabalho\trabalho\trabalho\obj\Debug\net6.0-windows\trabalho.AssemblyInfo.vb
+C:\Users\joaom\OneDrive\Área de Trabalho\trabalho\trabalho\obj\Debug\net6.0-windows\trabalho.vbproj.CoreCompileInputs.cache
+C:\Users\joaom\OneDrive\Área de Trabalho\trabalho\trabalho\obj\Debug\net6.0-windows\trabalho.dll
+C:\Users\joaom\OneDrive\Área de Trabalho\trabalho\trabalho\obj\Debug\net6.0-windows\refint\trabalho.dll
+C:\Users\joaom\OneDrive\Área de Trabalho\trabalho\trabalho\obj\Debug\net6.0-windows\trabalho.pdb
+C:\Users\joaom\OneDrive\Área de Trabalho\trabalho\trabalho\obj\Debug\net6.0-windows\trabalho.genruntimeconfig.cache
+C:\Users\joaom\OneDrive\Área de Trabalho\trabalho\trabalho\obj\Debug\net6.0-windows\ref\trabalho.dll

@@ -14,20 +14,24 @@ Imports System.Windows.Forms
 Public Class Form1
     Private Counter As Integer = 100
     Private Difficulty As Integer = 1
-
+    Public score As Integer
+    Public tamanho_tabela_nivel As Integer
 
     Private WithEvents RadioButton1 As RadioButton
     Private WithEvents RadioButton2 As RadioButton
     Private WithEvents RadioButton3 As RadioButton
-    Private WithEvents TextBox1 As TextBox
+    Public WithEvents TextBox1 As TextBox
+    Public WithEvents Listbox_options As ListBox
 
 
-    Private Correct_answers As Integer = 0
-    Private question_label As Label
-    Private Question_number As Integer = 0
+
+    Public Correct_answers As Integer = 0
+    Public WithEvents question_label As Label
+    Public WithEvents score_greet As Label
+    Public Question_number As Integer = 0
     Private label1 As Label
     Private GameOver_label As Label
-    Private Score_label As Label
+
 
     Private WithEvents proximaQuestao As Button
 
@@ -40,13 +44,13 @@ Public Class Form1
 
     End Interface
     Public Class EscolhaMultipla
-        Private textoQuestao As String
-        Private escolhas As String()
-        Private escolhaCorreta As String
-        Private tipo As String
+        Public textoQuestao As String
+        Public escolhas As String()
+        Public escolhaCorreta As String
+        Public tipo As String
 
         Public Sub New(textQuestao As String, escolhas As String(), escolhaCorreta As String, tipoQuestao As String)
-            Me.textoQuestao = textoQuestao
+            Me.textoQuestao = textQuestao
             Me.escolhas = escolhas
             Me.escolhaCorreta = escolhaCorreta
             Me.tipo = tipoQuestao
@@ -56,16 +60,18 @@ Public Class Form1
 
     End Class
 
+
+
     Public Class VerdadeiroFalso
-        Private textoQuestao As String
-        Private escolhas As String()
-        Private escolhaCorreta As String
-        Private tipo As String
+        Public textoQuestao As String
+        Public escolhas As String()
+        Public escolhaCorreta As String
+        Public tipo As String
 
 
         'No verdadeiro e falso, as escolhas são apenas verdadeiro ou falso
         Public Sub New(textQuestao As String, escolhas As String(), escolhaCorreta As String, tipoQuestao As String)
-            Me.textoQuestao = textoQuestao
+            Me.textoQuestao = textQuestao
             Me.escolhas = escolhas
             Me.escolhaCorreta = escolhaCorreta
             Me.tipo = tipoQuestao
@@ -76,12 +82,12 @@ Public Class Form1
     End Class
 
     Public Class Escrever
-        Private textoQuestao As String
-        Private escolhaCorreta As String
-        Private tipo As String
+        Public textoQuestao As String
+        Public escolhaCorreta As String
+        Public tipo As String
 
         Public Sub New(textQuestao As String, escolhaCorreta As String, tipoQuestao As String)
-            Me.textoQuestao = textoQuestao
+            Me.textoQuestao = textQuestao
             Me.escolhaCorreta = escolhaCorreta
             Me.tipo = tipoQuestao
 
@@ -97,37 +103,45 @@ Public Class Form1
 
     'Basta copiar e colocar dentro da tabela
 
-    'EscolhaMultipla("Mudar a pergunta de escolha multipla", {"opcao1", "opcao2", "opcao3"}, "opcao1", "EscolhaMultipa")
+    'EscolhaMultipla("Mudar a pergunta de escolha multipla", {"opcao1", "opcao2", "opcao3"}, "opcao1", "EscolhaMultipla")
     'VerdadeiroFalso("Mudar para a pergunta de vf ", {"Verdadeiro", "Falso"}, "Verdadeiro", "VerdadeiroFalso")
     'Escrever("Mudar para a pergunta de escrita ", "resposta, tipo 1997", "Escrever")
 
     'para fazer uma tabela nova, basta copiar isto:
 
     'Public questoes_tablea_dificuldade = {
-    '   New EscolhaMultipla("Mudar a pergunta de escolha multipla", {"opcao1", "opcao2", "opcao3"}, "opcao1", "EscolhaMultipa"),
+    '   New EscolhaMultipla("Mudar a pergunta de escolha multipla", {"opcao1", "opcao2", "opcao3"}, "opcao1", "EscolhaMultipla"),
     '   coloque mais ...
     '}
     Public questoes_tablea_facil = {
-        New EscolhaMultipla("Quanto tempo tem uma partida de futebol?", {"45 minutos", "100 minutos", "90 minutos"}, "90 minutos", "EscolhaMultipa"),
+        New EscolhaMultipla("Quanto tempo tem uma partida de futebol?", {"45 minutos", "100 minutos", "90 minutos"}, "90 minutos", "EscolhaMultipla"),
         New VerdadeiroFalso("A equipa de futebol com mais Copas do Mundo é a Espanha? ", {"Verdadeiro", "Falso"}, "Falso", "VerdadeiroFalso"),
-        New Escrever("Quem é o atual artilheiro do FC Barcelona? ", "lionel messi", "Escrever"),
-        New EscolhaMultipla("Quantos jogadores uma equipa de futebol tem em jogo?", {"10", "6", "11"}, "11", "EscolhaMultipa"),
+        New Escrever("Quem é o atual artilheiro do FC Barcelona? (Primeiro e ultimo nome )", "lionel messi", "Escrever"),
+        New EscolhaMultipla("Quantos jogadores uma equipa de futebol tem em jogo?", {"10", "6", "11"}, "11", "EscolhaMultipla"),
         New VerdadeiroFalso("O Real Madrid é a equipa com mais Champions League? ", {"Verdadeiro", "Falso"}, "Verdadeiro", "VerdadeiroFalso"),
-        New Escrever("Qual jogador era conhecido como O Rei? ", "Pelé", "Escrever"),
-        New EscolhaMultipla("Qual é o nome da primeira liga de futebol alemã?", {"Ligue 1", "Premier League", "Bundesliga"}, "Bundesliga", "EscolhaMultipa"),
+        New Escrever("Qual jogador era conhecido como O Rei?", "pelé", "Escrever"),
+        New EscolhaMultipla("Qual é o nome da primeira liga de futebol alemã?", {"Ligue 1", "Premier League", "Bundesliga"}, "bundesliga", "EscolhaMultipla"),
         New VerdadeiroFalso("Lionel Messi possui 8 bolas de ouro? ", {"Verdadeiro", "Falso"}, "Verdadeiro", "VerdadeiroFalso"),
-        New Escrever("Quantas bolas de ouro ganhou Luís Figo? ", "uma", "Escrever"),
-        New EscolhaMultipla("Qual é a nacionalidade do jogador Johan Cruijff? ", {"Holandês", "Alemão", "Francês"}, "Holandês", "EscolhaMultipa"),
+        New Escrever("Quantas bolas de ouro ganhou Luís Figo? (por exemplo: dez ou duas)", "uma", "Escrever"),
+        New EscolhaMultipla("Qual é a nacionalidade do jogador Johan Cruijff? ", {"Holandês", "Alemão", "Francês"}, "Holandês", "EscolhaMultipla"),
         New VerdadeiroFalso("Cristiano Ronaldo jogou no Real Madrid? ", {"Verdadeiro", "Falso"}, "Verdadeiro", "VerdadeiroFalso"),
         New Escrever("Qual instituição governa as federações de futebol ao redor do planeta? ", "fifa", "Escrever"),
-        New EscolhaMultipla("Qual é a famosa alcunha que Cristiano Ronaldo possui? ", {"CR7", "R9", "R10"}, "CR7", "EscolhaMultipa"),
+        New EscolhaMultipla("Qual é a famosa alcunha que Cristiano Ronaldo possui? ", {"CR7", "R9", "R10"}, "CR7", "EscolhaMultipla"),
         New VerdadeiroFalso("A famosa alcunha de Eusébio era Pantera Negra? ", {"Verdadeiro", "Falso"}, "Verdadeiro", "VerdadeiroFalso"),
         New Escrever("Que equipa tem mais títulos de liga na Liga Nos? ", "benfica", "Escrever")
+        }
 
     Private Sub Facil()
         Dim questao_atual As Object = questoes_tablea_facil(indice_questao)
-        question_label.Text = questao_atual.textoQuestao
-        If questao_atual.tipo = "EscolhaMultipa" Then
+
+        Dim texto_atual As String = questao_atual.textoQuestao
+        Listbox_options.Visible = False
+        voltar_button.Visible = False
+        proximaQuestao.Visible = True
+        question_label.Visible = True
+        question_label.Text = texto_atual
+
+        If questao_atual.tipo = "EscolhaMultipla" Then
             RadioButton1.Text = questao_atual.escolhas(0)
             RadioButton2.Text = questao_atual.escolhas(1)
             RadioButton3.Text = questao_atual.escolhas(2)
@@ -144,8 +158,8 @@ Public Class Form1
 
 
             ' Para verdadeiro e falso
-            RadioButton1.Text = "True"
-            RadioButton2.Text = "False"
+            RadioButton1.Text = "Verdadeiro"
+            RadioButton2.Text = "Falso"
             RadioButton1.Checked = False
             RadioButton2.Checked = False
             RadioButton1.Visible = True
@@ -175,13 +189,19 @@ Public Class Form1
         New VerdadeiroFalso("Roberto Baggio ganhou uma bola de ouro. ", {"Verdadeiro", "Falso"}, "Verdadeiro", "VerdadeiroFalso"),
         New Escrever("Quantas copas do mundo tem Espanha? ", "uma", "Escrever"),
         New EscolhaMultipla("Em que posição o colombiano René Higuita jogou? ", {"guarda-redes", "defesa", "médio defensivo"}, "guarda-redes", "EscolhaMultipa")
+        }
 
     Private Sub Medio()
         'Afonso, crie esta funcao, basta copiar a facil e alterar o que achares preciso!
-
         Dim questao_atual As Object = questoes_tablea_medio(indice_questao)
-        question_label.Text = questao_atual.textoQuestao
-        If questao_atual.tipo = "EscolhaMultipa" Then
+
+        Dim texto_atual As String = questao_atual.textoQuestao
+        voltar_button.Visible = False
+        proximaQuestao.Visible = True
+        question_label.Visible = True
+        question_label.Text = texto_atual
+
+        If questao_atual.tipo = "EscolhaMultipla" Then
             RadioButton1.Text = questao_atual.escolhas(0)
             RadioButton2.Text = questao_atual.escolhas(1)
             RadioButton3.Text = questao_atual.escolhas(2)
@@ -198,8 +218,8 @@ Public Class Form1
 
 
             ' Para verdadeiro e falso
-            RadioButton1.Text = "True"
-            RadioButton2.Text = "False"
+            RadioButton1.Text = "Verdadeiro"
+            RadioButton2.Text = "Falso"
             RadioButton1.Checked = False
             RadioButton2.Checked = False
             RadioButton1.Visible = True
@@ -218,20 +238,27 @@ Public Class Form1
     End Sub
 
     Public questoes_tablea_dificil = {
-        New EscolhaMultipla("Quem foi o primeiro africano a ganhar a Bola de Ouro? ", {"George Weah", "Samuel Eto", "Didier Drogba"}, "George Weah", "EscolhaMultipa"),
+        New EscolhaMultipla("Quem foi o primeiro africano a ganhar a Bola de Ouro? ", {"George Weah", "Samuel Eto", "Didier Drogba"}, "George Weah", "Listbox"),
         New VerdadeiroFalso("O animal que foi escolhido para ilustrar o mascote da Copa do Mundo na Rússia (2018) foi um lobo? ", {"Verdadeiro", "Falso"}, "Verdadeiro", "VerdadeiroFalso"),
         New Escrever("Em qual equipa italiana Michel Platini venceu a liga? ", "juventus", "Escrever"),
-        New EscolhaMultipla("Em qual time europeu jogou o peruano Hugo (El Cholo) Sotil?", {"Napoli", "PSG", "FC Barcelona"}, "FC Barcelona", "EscolhaMultipa"),
+        New EscolhaMultipla("Em qual time europeu jogou o peruano Hugo (El Cholo) Sotil?", {"Napoli", "PSG", "FC Barcelona"}, "FC Barcelona", "Listbox"),
         New VerdadeiroFalso("A cada 4 anos, uma empresa diferente fabrica o couro com o qual a Copa do Mundo é disputada? ", {"Verdadeiro", "Falso"}, "Falso", "VerdadeiroFalso"),
         New Escrever("Contra qual país Wayne Rooney quebrou o recorde de golos da Inglaterra? ", "Suiça", "Escrever"),
-        New EscolhaMultipla("Qual jogador francês de ascendência argelina jogou pelo Real Madrid?", {"Zinedine Zidane", "Christian Lali Karembeu", "Claude Makelele"}, "Zinedine Zidane", "EscolhaMultipa"),
+        New EscolhaMultipla("Qual jogador francês de ascendência argelina jogou pelo Real Madrid?", {"Zinedine Zidane", "Christian Lali Karembeu", "Claude Makelele"}, "Zinedine Zidane", "EscolhaMultipla")
+        }
 
     Private Sub Dificil()
         'Afonso, crie esta funcao tambem, basta copiar a facil e alterar o que achares preciso!
 
         Dim questao_atual As Object = questoes_tablea_dificil(indice_questao)
-        question_label.Text = questao_atual.textoQuestao
-        If questao_atual.tipo = "EscolhaMultipa" Then
+
+        Dim texto_atual As String = questao_atual.textoQuestao
+        voltar_button.Visible = False
+        proximaQuestao.Visible = True
+        question_label.Visible = True
+        question_label.Text = texto_atual
+
+        If questao_atual.tipo = "EscolhaMultipla" Then
             RadioButton1.Text = questao_atual.escolhas(0)
             RadioButton2.Text = questao_atual.escolhas(1)
             RadioButton3.Text = questao_atual.escolhas(2)
@@ -242,68 +269,179 @@ Public Class Form1
             RadioButton2.Visible = True
             RadioButton3.Visible = True
             TextBox1.Visible = False
+            Listbox_options.Visible = False
 
 
         ElseIf questao_atual.tipo = "VerdadeiroFalso" Then
 
 
             ' Para verdadeiro e falso
-            RadioButton1.Text = "True"
-            RadioButton2.Text = "False"
+            RadioButton1.Text = "Verdadeiro"
+            RadioButton2.Text = "Falso"
             RadioButton1.Checked = False
             RadioButton2.Checked = False
             RadioButton1.Visible = True
             RadioButton2.Visible = True
             RadioButton3.Visible = False
+            Listbox_options.Visible = False
             TextBox1.Visible = False
         ElseIf questao_atual.tipo = "Escrever" Then
             ' Para texto
             RadioButton1.Visible = False
             RadioButton2.Visible = False
             RadioButton3.Visible = False
+            Listbox_options.Visible = False
             TextBox1.Text = ""
             TextBox1.Visible = True
+        ElseIf questao_atual.tipo = "Listbox" Then
+            ' Para texto
+            Listbox_options.Visible = True
+            RadioButton1.Visible = False
+            RadioButton2.Visible = False
+            RadioButton3.Visible = False
+            TextBox1.Text = ""
+            TextBox1.Visible = False
+            Listbox_options.Items.Clear()
+            Listbox_options.Items.Add(questao_atual.escolhas(0))
+            Listbox_options.Items.Add(questao_atual.escolhas(1))
+            Listbox_options.Items.Add(questao_atual.escolhas(2))
+
         End If
 
     End Sub
 
 
+
     'Afonso, este Private Sub NextButton_Click não precisa de tocar
     Private userAnswers As String() = New String(questoes_tablea_facil.Length - 1) {}
     Private Sub NextButton_Click(sender As Object, e As EventArgs) Handles proximaQuestao.Click
-        Dim questao_atual As Object = questoes_tablea_facil(indice_questao)
-        ' Record the user's answer to the current question
-        If questao_atual.tipo = "Escrever" Then
-            If RadioButton1.Checked Then
-                questao_atual(indice_questao) = RadioButton1.Text
-            ElseIf RadioButton2.Checked Then
-                questao_atual(indice_questao) = RadioButton2.Text
-            ElseIf RadioButton3.Checked Then
-                questao_atual(indice_questao) = RadioButton3.Text
-            Else
-                userAnswers(indice_questao) = ""
-            End If
-        ElseIf questao_atual.tipo = "Escrever" Then
-            If RadioButton1.Checked Then
-                userAnswers(indice_questao) = "True"
-            ElseIf RadioButton2.Checked Then
-                userAnswers(indice_questao) = "False"
-            Else
-                userAnswers(indice_questao) = ""
-            End If
-        ElseIf questao_atual.tipo = "Escrever" Then
-            userAnswers(indice_questao) = TextBox1.Text
+
+        Dim questoes_tabela As Object
+
+        If Difficulty = 0 Then
+            tamanho_tabela_nivel = questoes_tablea_facil.Length
+        ElseIf Difficulty = 1 Then
+
+
+            tamanho_tabela_nivel = questoes_tablea_medio.Length
+
+        ElseIf Difficulty = 2 Then
+            tamanho_tabela_nivel = questoes_tablea_dificil.Length
+
+
         End If
+        System.Console.WriteLine(tamanho_tabela_nivel & " difficlty")
+
+        'Ver se não é o fim de jogo
+        If indice_questao < tamanho_tabela_nivel - 1 Then
+
+
+            If Difficulty = 0 Then
+                questoes_tabela = questoes_tablea_facil
+            ElseIf Difficulty = 1 Then
+
+
+                questoes_tabela = questoes_tablea_medio
+
+            ElseIf Difficulty = 2 Then
+                questoes_tabela = questoes_tablea_dificil
+
+
+            End If
+            Dim questao_atual As Object = questoes_tabela(indice_questao)
+
+            If questao_atual.tipo = "EscolhaMultipla" Then
+
+                Dim correto As String = questao_atual.escolhaCorreta
+
+
+                If RadioButton1.Checked Then
+                    'Make other if statement to check if it is the right answer
+                    'Same to the other 
+
+                    If correto = RadioButton1.Text Then
+
+                        score += 1
+                    End If
+                ElseIf RadioButton2.Checked Then
+                    If questao_atual.escolhaCorreta = RadioButton2.Text Then
+                        score += 1
+                    End If
+                ElseIf RadioButton3.Checked Then
+                    If questao_atual.escolhaCorreta = RadioButton3.Text Then
+                        score += 1
+                    End If
+                Else
+                    userAnswers(indice_questao) = ""
+                End If
+            ElseIf questao_atual.tipo = "VerdadeiroFalso" Then
+                System.Console.WriteLine(questao_atual.escolhaCorreta & "hello world")
+                If RadioButton1.Checked Then
+                    If questao_atual.escolhaCorreta = RadioButton2.Text Then
+                        score += 1
+                    End If
+                ElseIf RadioButton2.Checked Then
+                    If questao_atual.escolhaCorreta = RadioButton2.Text Then
+                        score += 1
+                    End If
+                Else
+                    userAnswers(indice_questao) = ""
+                End If
+            ElseIf questao_atual.tipo = "Escrever" Then
+                Dim resposta_utilizador As String = TextBox1.Text
+                resposta_utilizador = resposta_utilizador.ToLower()
+                If questao_atual.escolhaCorreta = resposta_utilizador Then
+                    score += 1
+                End If
+            ElseIf questao_atual.tipo = "Listbox" Then
+                ''change this part of the code
+
+                If Listbox_options.SelectedItem IsNot Nothing Then
+                    Dim resposta_utilizador As String = Listbox_options.SelectedItem.ToString()
+                    ' do something with the selected answer
+                    If questao_atual.escolhaCorreta = resposta_utilizador Then
+                        score += 1
+                    End If
+                End If
+
+
+
+
+            End If
+            indice_questao += 1
+            If Difficulty = 0 Then
+                Facil()
+            ElseIf Difficulty = 1 Then
+                Medio()
+
+            ElseIf Difficulty = 2 Then
+                Dificil()
+
+
+            End If
+
+        Else
+            'Condição para fim de jogo
+            indice_questao = 0
+            GameOver_label.Visible = True
+            TextBox1.Visible = False
+            voltar_button.Visible = True
+            RadioButton1.Visible = False
+            RadioButton2.Visible = False
+            RadioButton3.Visible = False
+            question_label.Visible = False
+            proximaQuestao.Visible = False
+            score_greet.Text = "A sua pontuação foi " & score & " de " & tamanho_tabela_nivel - 1
+            score_greet.Visible = True
+
+        End If
+        ' Record the user's answer to the current question
 
         ' Ir para a proxima questao 
-        indice_questao += 1
-        Dim tamanho_tabela_nivel As Integer = questoes_tablea_facil.Length
-        If indice_questao < tamanho_tabela_nivel Then
-            Facil()
-        Else
-            'Mostrar o que a pessoa escolheu em cada questão no final
-            Dim results As String = ""
-        End If
+
+
+
+        System.Console.WriteLine(tamanho_tabela_nivel)
 
     End Sub
 
@@ -325,12 +463,12 @@ Public Class Form1
         Titulo.Visible = False
         start_button.Visible = False
 
-
+        Difficulty = 0
 
         label1.Visible = True
-
+        label1.Text = 100
         Facil()
-        Timer1.Interval = 1000
+        Timer1.Interval = 2000
         Timer1.Start()
 
 
@@ -345,13 +483,14 @@ Public Class Form1
         Regras.Visible = False
         Titulo.Visible = False
         start_button.Visible = False
-
+        Difficulty = 1
 
 
 
         label1.Visible = True
-
-
+        label1.Text = 60
+        Medio()
+        Counter = 60
         Timer1.Interval = 1000
         Timer1.Start()
 
@@ -370,14 +509,16 @@ Public Class Form1
 
         'option creation
 
-        Difficulty = 3
+        Difficulty = 2
 
 
 
 
         label1.Visible = True
+        label1.Text = 40
+        Dificil()
 
-
+        Counter = 40
         Timer1.Interval = 1000
         Timer1.Start()
 
@@ -397,6 +538,7 @@ Public Class Form1
         Começar3.Visible = False
 
 
+
         'Para as labels é diferente dos botoes
 
         label1 = New Label
@@ -408,13 +550,38 @@ Public Class Form1
         label1.Text = Counter.ToString
         Controls.Add(label1)
         label1.Visible = False
-        Timer1.Interval = 1000
+        Timer1.Interval = 2000
+
+
+        question_label = New Label
+        question_label.Text = "Pargunta"
+        question_label.Top = 30
+        question_label.Left = 100
+        question_label.Width = 400
+        Controls.Add(CType(question_label, Control))
+        question_label.Visible = False
 
 
 
+        'Isso vai mostrar a pontuação no final, Afonso, muda o top left e width 
+        score_greet = New Label
+        score_greet.Text = "A sua Pontuacão foi"
+        score_greet.Top = 200
+        score_greet.Left = 100
+        score_greet.Width = 400
+        Controls.Add(CType(score_greet, Control))
+        score_greet.Visible = False
+
+        TextBox1 = New TextBox
+        TextBox1.Visible = False
+        TextBox1.Location = New Point(100, 150)
+        Controls.Add(CType(TextBox1, Control))
 
 
-
+        Listbox_options = New ListBox
+        Listbox_options.Visible = False
+        Listbox_options.Location = New Point(100, 150)
+        Controls.Add(CType(Listbox_options, Control))
 
 
         ' Afonso, Aqui no .Location é a localizacao na pagina de cada elemento, o (0,0) é no canto superior esquerdo
@@ -430,8 +597,26 @@ Public Class Form1
         'Aqui é para ver se o botao é visivel quando ligamos o programa, na pagina inicial, com as regras
         proximaQuestao.Visible = False
 
+        RadioButton1 = New RadioButton
+        RadioButton2 = New RadioButton
+        RadioButton3 = New RadioButton
 
+        RadioButton1.Location = New Point(140, 100)
+        RadioButton1.Width = 100
 
+        RadioButton2.Location = New Point(190, 150)
+        RadioButton2.Width = 100
+
+        RadioButton3.Location = New Point(240, 200)
+        RadioButton3.Width = 100
+
+        Controls.Add(RadioButton1)
+        Controls.Add(RadioButton2)
+        Controls.Add(RadioButton3)
+
+        RadioButton1.Visible = False
+        RadioButton2.Visible = False
+        RadioButton3.Visible = False
         'Para o voltar é a mesma coisa
         voltar_button = New Button
         voltar_button.Location = New Point(340, 300)
@@ -449,13 +634,7 @@ Public Class Form1
         Controls.Add(CType(GameOver_label, Control))
         GameOver_label.Visible = False
 
-        Score_label = New Label
-        Score_label.Left = 300
-        Score_label.Top = 200
-        Score_label.Width = 600
-        Score_label.Text = "Score"
-        Controls.Add(CType(Score_label, Control))
-        Score_label.Visible = False
+
 
 
     End Sub
@@ -468,6 +647,16 @@ Public Class Form1
             Timer1.Stop()
             GameOver_label.Visible = True
             question_label.Visible = False
+            Listbox_options.Visible = False
+            RadioButton1.Visible = False
+            RadioButton2.Visible = False
+            RadioButton3.Visible = False
+            TextBox1.Text = ""
+            TextBox1.Visible = False
+            proximaQuestao.Visible = False
+            voltar_button.Visible = True
+            score_greet.Visible = True
+            score_greet.Text = "A sua pontuação foi " & score & " de " & tamanho_tabela_nivel - 1
 
         End If
 
@@ -500,8 +689,10 @@ Public Class Form1
         Titulo.Visible = True
 
         GameOver_label.Visible = False
-        Score_label.Visible = False
+        score_greet.Visible = False
         Correct_answers = 0
         label1.Visible = False
     End Sub
+
+
 End Class

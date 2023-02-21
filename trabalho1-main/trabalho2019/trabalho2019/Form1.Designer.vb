@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Descartar substituições de formulário para limpar a lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'OBSERVAÇÃO: o procedimento a seguir é exigido pelo Windows Form Designer
     'Pode ser modificado usando o Windows Form Designer.  
     'Não o modifique usando o editor de códigos.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Titulo = New System.Windows.Forms.Label()
@@ -61,7 +61,7 @@ Partial Class Form1
         '
         'Começar
         '
-        Me.Começar.Location = New System.Drawing.Point(338, 121)
+        Me.Começar.Location = New System.Drawing.Point(338, 106)
         Me.Começar.Name = "Começar"
         Me.Começar.Size = New System.Drawing.Size(75, 23)
         Me.Começar.TabIndex = 3
@@ -70,7 +70,7 @@ Partial Class Form1
         '
         'Começar2
         '
-        Me.Começar2.Location = New System.Drawing.Point(338, 170)
+        Me.Começar2.Location = New System.Drawing.Point(338, 135)
         Me.Começar2.Name = "Começar2"
         Me.Começar2.Size = New System.Drawing.Size(75, 23)
         Me.Começar2.TabIndex = 4
@@ -79,7 +79,7 @@ Partial Class Form1
         '
         'Começar3
         '
-        Me.Começar3.Location = New System.Drawing.Point(338, 226)
+        Me.Começar3.Location = New System.Drawing.Point(338, 164)
         Me.Começar3.Name = "Começar3"
         Me.Começar3.Size = New System.Drawing.Size(75, 23)
         Me.Começar3.TabIndex = 5
@@ -101,7 +101,7 @@ Partial Class Form1
         Me.Controls.Add(Me.start_button)
         Me.Controls.Add(Me.Titulo)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "FutQuiz"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

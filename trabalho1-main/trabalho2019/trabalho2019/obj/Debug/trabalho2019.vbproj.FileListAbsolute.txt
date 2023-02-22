@@ -34,3 +34,15 @@ C:\Users\joaom\OneDrive\Área de Trabalho\trabalho1-main\trabalho1-main\trabalho
 C:\Users\joaom\OneDrive\Área de Trabalho\trabalho1-main\trabalho1-main\trabalho1-main\trabalho2019\trabalho2019\bin\Debug\trabalho2019.exe
 C:\Users\joaom\OneDrive\Área de Trabalho\trabalho1-main\trabalho1-main\trabalho1-main\trabalho2019\trabalho2019\bin\Debug\trabalho2019.pdb
 C:\Users\joaom\OneDrive\Área de Trabalho\trabalho1-main\trabalho1-main\trabalho1-main\trabalho2019\trabalho2019\bin\Debug\trabalho2019.xml
+C:\Users\aluno\Desktop\Trabalho\trabalho1-main\trabalho1-main\trabalho2019\trabalho2019\bin\Debug\trabalho2019.exe.config
+C:\Users\aluno\Desktop\Trabalho\trabalho1-main\trabalho1-main\trabalho2019\trabalho2019\bin\Debug\trabalho2019.exe
+C:\Users\aluno\Desktop\Trabalho\trabalho1-main\trabalho1-main\trabalho2019\trabalho2019\bin\Debug\trabalho2019.pdb
+C:\Users\aluno\Desktop\Trabalho\trabalho1-main\trabalho1-main\trabalho2019\trabalho2019\bin\Debug\trabalho2019.xml
+C:\Users\aluno\Desktop\Trabalho\trabalho1-main\trabalho1-main\trabalho2019\trabalho2019\obj\Debug\trabalho2019.vbproj.AssemblyReference.cache
+C:\Users\aluno\Desktop\Trabalho\trabalho1-main\trabalho1-main\trabalho2019\trabalho2019\obj\Debug\trabalho2019.Form1.resources
+C:\Users\aluno\Desktop\Trabalho\trabalho1-main\trabalho1-main\trabalho2019\trabalho2019\obj\Debug\trabalho2019.Resources.resources
+C:\Users\aluno\Desktop\Trabalho\trabalho1-main\trabalho1-main\trabalho2019\trabalho2019\obj\Debug\trabalho2019.vbproj.GenerateResource.cache
+C:\Users\aluno\Desktop\Trabalho\trabalho1-main\trabalho1-main\trabalho2019\trabalho2019\obj\Debug\trabalho2019.vbproj.CoreCompileInputs.cache
+C:\Users\aluno\Desktop\Trabalho\trabalho1-main\trabalho1-main\trabalho2019\trabalho2019\obj\Debug\trabalho2019.exe
+C:\Users\aluno\Desktop\Trabalho\trabalho1-main\trabalho1-main\trabalho2019\trabalho2019\obj\Debug\trabalho2019.xml
+C:\Users\aluno\Desktop\Trabalho\trabalho1-main\trabalho1-main\trabalho2019\trabalho2019\obj\Debug\trabalho2019.pdb

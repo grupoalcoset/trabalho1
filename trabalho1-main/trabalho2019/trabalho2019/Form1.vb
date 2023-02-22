@@ -116,7 +116,7 @@ Public Class Form1
     Public questoes_tablea_facil = {
         New EscolhaMultipla("Quanto tempo tem uma partida de futebol?", {"45 minutos", "100 minutos", "90 minutos"}, "90 minutos", "EscolhaMultipla"),
         New VerdadeiroFalso("A equipa de futebol com mais Copas do Mundo é a Espanha? ", {"Verdadeiro", "Falso"}, "Falso", "VerdadeiroFalso"),
-        New Escrever("Quem é o atual artilheiro do FC Barcelona? (Primeiro e ultimo nome )", "lionel messi", "Escrever"),
+        New Escrever("Quem é o atual artilheiro do FC Barcelona? (Primeiro e ultimo nome )", "robert lewandowski", "Escrever"),
         New EscolhaMultipla("Quantos jogadores uma equipa de futebol tem em jogo?", {"10", "6", "11"}, "11", "EscolhaMultipla"),
         New VerdadeiroFalso("O Real Madrid é a equipa com mais Champions League? ", {"Verdadeiro", "Falso"}, "Verdadeiro", "VerdadeiroFalso"),
         New Escrever("Qual jogador era conhecido como O Rei?", "pelé", "Escrever"),
@@ -179,16 +179,16 @@ Public Class Form1
 
 
     Public questoes_tablea_medio = {
-        New EscolhaMultipla("Qual equipa foi a campeã do campeonato mundial de futebol de 2014? ", {"Alemanha", "Brasil", "França"}, "Alemanha", "EscolhaMultipa"),
+        New EscolhaMultipla("Qual equipa foi a campeã do campeonato mundial de futebol de 2014? ", {"Alemanha", "Brasil", "França"}, "Alemanha", "EscolhaMultipla"),
         New VerdadeiroFalso("O melhor marcador da história da copa do mundo é Miroslav Klose? ", {"Verdadeiro", "Falso"}, "Verdadeiro", "VerdadeiroFalso"),
         New Escrever("Qual time famoso é conhecido como os Reds ", "liverpool", "Escrever"),
-        New EscolhaMultipla("Qual guarda-redes soviético era conhecido como A Aranha Negra?", {"Lev Yashin", "Oliver Kahn", "Peter Schmeichel"}, "Lev Yashin", "EscolhaMultipa"),
+        New EscolhaMultipla("Qual guarda-redes soviético era conhecido como A Aranha Negra?", {"Lev Yashin", "Oliver Kahn", "Peter Schmeichel"}, "Lev Yashin", "EscolhaMultipla"),
         New VerdadeiroFalso("A última equipa do ex-jogador de futebol italiano Andrea Pirlo foi New York City?", {"Verdadeiro", "Falso"}, "Verdadeiro", "VerdadeiroFalso"),
         New Escrever("De que país é Mohammed Kudus? ", "Gana", "Escrever"),
-        New EscolhaMultipla("Em que equipa Marco van Basten jogou?", {"PSV", "Ajax", "AZ"}, "Ajax", "EscolhaMultipa"),
+        New EscolhaMultipla("Em que equipa Marco van Basten jogou?", {"PSV", "Ajax", "AZ Alkmar"}, "Ajax", "EscolhaMultipla"),
         New VerdadeiroFalso("Roberto Baggio ganhou uma bola de ouro. ", {"Verdadeiro", "Falso"}, "Verdadeiro", "VerdadeiroFalso"),
         New Escrever("Quantas copas do mundo tem Espanha? ", "uma", "Escrever"),
-        New EscolhaMultipla("Em que posição o colombiano René Higuita jogou? ", {"guarda-redes", "defesa", "médio defensivo"}, "guarda-redes", "EscolhaMultipa")
+        New EscolhaMultipla("Em que posição o colombiano René Higuita jogou? ", {"guarda-redes", "defesa", "médio defensivo"}, "guarda-redes", "EscolhaMultipla")
         }
 
     Private Sub Medio()
@@ -239,11 +239,11 @@ Public Class Form1
 
     Public questoes_tablea_dificil = {
         New EscolhaMultipla("Quem foi o primeiro africano a ganhar a Bola de Ouro? ", {"George Weah", "Samuel Eto", "Didier Drogba"}, "George Weah", "Listbox"),
-        New VerdadeiroFalso("O animal que foi escolhido para ilustrar o mascote da Copa do Mundo na Rússia (2018) foi um lobo? ", {"Verdadeiro", "Falso"}, "Verdadeiro", "VerdadeiroFalso"),
+        New VerdadeiroFalso("O animal que foi escolhido para a mascote do Mundial da Russía (2018) foi um lobo? ", {"Verdadeiro", "Falso"}, "Verdadeiro", "VerdadeiroFalso"),
         New Escrever("Em qual equipa italiana Michel Platini venceu a liga? ", "juventus", "Escrever"),
         New EscolhaMultipla("Em qual time europeu jogou o peruano Hugo (El Cholo) Sotil?", {"Napoli", "PSG", "FC Barcelona"}, "FC Barcelona", "Listbox"),
-        New VerdadeiroFalso("A cada 4 anos, uma empresa diferente fabrica o couro com o qual a Copa do Mundo é disputada? ", {"Verdadeiro", "Falso"}, "Falso", "VerdadeiroFalso"),
-        New Escrever("Contra qual país Wayne Rooney quebrou o recorde de golos da Inglaterra? ", "Suiça", "Escrever"),
+        New VerdadeiroFalso("O Sporting foi o primeiro clube profissional de Cristiano Ronaldo? ", {"Verdadeiro", "Falso"}, "Verdadeiro", "VerdadeiroFalso"),
+        New Escrever("Contra qual país Wayne Rooney quebrou o recorde de golos da Inglaterra? ", "suiça", "Escrever"),
         New EscolhaMultipla("Qual jogador francês de ascendência argelina jogou pelo Real Madrid?", {"Zinedine Zidane", "Christian Lali Karembeu", "Claude Makelele"}, "Zinedine Zidane", "EscolhaMultipla")
         }
 
@@ -377,7 +377,7 @@ Public Class Form1
             ElseIf questao_atual.tipo = "VerdadeiroFalso" Then
                 System.Console.WriteLine(questao_atual.escolhaCorreta & "hello world")
                 If RadioButton1.Checked Then
-                    If questao_atual.escolhaCorreta = RadioButton2.Text Then
+                    If questao_atual.escolhaCorreta = RadioButton1.Text Then
                         score += 1
                     End If
                 ElseIf RadioButton2.Checked Then
@@ -428,6 +428,7 @@ Public Class Form1
             voltar_button.Visible = True
             RadioButton1.Visible = False
             RadioButton2.Visible = False
+            Timer1.Stop()
             RadioButton3.Visible = False
             question_label.Visible = False
             proximaQuestao.Visible = False
@@ -537,13 +538,11 @@ Public Class Form1
         Começar2.Visible = False
         Começar3.Visible = False
 
-
-
         'Para as labels é diferente dos botoes
 
         label1 = New Label
         label1.Left = 0
-        label1.Top = 0
+        label1.Top = 30
 
 
 
@@ -556,8 +555,8 @@ Public Class Form1
         question_label = New Label
         question_label.Text = "Pargunta"
         question_label.Top = 30
-        question_label.Left = 100
-        question_label.Width = 400
+        question_label.Left = 190
+        question_label.Width = 600
         Controls.Add(CType(question_label, Control))
         question_label.Visible = False
 
@@ -574,13 +573,13 @@ Public Class Form1
 
         TextBox1 = New TextBox
         TextBox1.Visible = False
-        TextBox1.Location = New Point(100, 150)
+        TextBox1.Location = New Point(340, 180)
         Controls.Add(CType(TextBox1, Control))
 
 
         Listbox_options = New ListBox
         Listbox_options.Visible = False
-        Listbox_options.Location = New Point(100, 150)
+        Listbox_options.Location = New Point(330, 180)
         Controls.Add(CType(Listbox_options, Control))
 
 
@@ -602,13 +601,13 @@ Public Class Form1
         RadioButton3 = New RadioButton
 
         RadioButton1.Location = New Point(140, 100)
-        RadioButton1.Width = 100
+        RadioButton1.Width = 200
 
         RadioButton2.Location = New Point(190, 150)
-        RadioButton2.Width = 100
+        RadioButton2.Width = 200
 
         RadioButton3.Location = New Point(240, 200)
-        RadioButton3.Width = 100
+        RadioButton3.Width = 200
 
         Controls.Add(RadioButton1)
         Controls.Add(RadioButton2)
@@ -619,24 +618,70 @@ Public Class Form1
         RadioButton3.Visible = False
         'Para o voltar é a mesma coisa
         voltar_button = New Button
-        voltar_button.Location = New Point(340, 300)
+        voltar_button.Location = New Point(340, 380)
         voltar_button.Width = 100
+        voltar_button.Height = 50
         voltar_button.Text = "Voltar"
         Controls.Add(voltar_button)
         voltar_button.Visible = False
+        voltar_button.Font = New Font("Arial", 12, voltar_button.Font.Style.Bold)
+        voltar_button.FlatStyle = FlatStyle.Flat
+        voltar_button.FlatAppearance.BorderSize = 3
+        voltar_button.FlatAppearance.BorderColor = Color.Green
 
-        'Game over Late night vibes
+        'Aparencia Butão Proxima
+        proximaQuestao.Height = 50
+        proximaQuestao.Font = New Font("Arial", 12, proximaQuestao.Font.Style.Bold)
+        proximaQuestao.FlatStyle = FlatStyle.Flat
+        proximaQuestao.FlatAppearance.BorderSize = 3
+        proximaQuestao.FlatAppearance.BorderColor = Color.Green
+
+        'Exibação do Game Over
         GameOver_label = New Label
-        GameOver_label.Left = 300
-        GameOver_label.Top = 100
-        GameOver_label.Width = 600
+        GameOver_label.Left = 250
+        GameOver_label.Top = 130
+        GameOver_label.Height = 60
+        GameOver_label.Width = 800
         GameOver_label.Text = "Game Over!"
         Controls.Add(CType(GameOver_label, Control))
         GameOver_label.Visible = False
+        GameOver_label.BackColor = Color.Transparent
+        GameOver_label.Font = New Font("Arial", 40, GameOver_label.Font.Style.Bold)
+        GameOver_label.ForeColor = Color.White
 
+        'Exibição da pontuação
+        score_greet.Left = 300
+        score_greet.Top = 250
+        score_greet.Height = 50
+        score_greet.Width = 800
+        score_greet.BackColor = Color.Transparent
+        score_greet.Font = New Font("Arial", 12, score_greet.Font.Style.Bold)
+        score_greet.ForeColor = Color.White
 
+        'Exibição da pergunta
+        question_label.BackColor = Color.Transparent
+        question_label.Font = New Font("Arial", 10, question_label.Font.Style.Bold)
+        question_label.ForeColor = Color.White
 
+        'Exibição do radiao button 1
+        RadioButton1.BackColor = Color.Transparent
+        RadioButton1.Font = New Font("Arial", 14, RadioButton1.Font.Style.Bold)
+        RadioButton1.ForeColor = Color.White
 
+        'Exibição do radiao button 2
+        RadioButton2.BackColor = Color.Transparent
+        RadioButton2.Font = New Font("Arial", 14, RadioButton2.Font.Style.Bold)
+        RadioButton2.ForeColor = Color.White
+
+        'Exibição do radiao button 3
+        RadioButton3.BackColor = Color.Transparent
+        RadioButton3.Font = New Font("Arial", 14, RadioButton3.Font.Style.Bold)
+        RadioButton3.ForeColor = Color.White
+
+        'Exibição do tempo
+        label1.BackColor = Color.Transparent
+        label1.Font = New Font("Arial", 14, label1.Font.Style.Bold)
+        label1.ForeColor = Color.White
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick

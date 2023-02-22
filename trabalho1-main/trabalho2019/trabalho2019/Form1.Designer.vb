@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Titulo = New System.Windows.Forms.Label()
         Me.start_button = New System.Windows.Forms.Button()
         Me.Regras = New System.Windows.Forms.Button()
@@ -32,6 +33,8 @@ Partial Class Form1
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.creditos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.regras_label = New System.Windows.Forms.Label()
+        Me.regras_label2 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -133,6 +136,30 @@ Partial Class Form1
         Me.creditos.Size = New System.Drawing.Size(63, 20)
         Me.creditos.Text = "Créditos"
         '
+        'regras_label
+        '
+        Me.regras_label.BackColor = System.Drawing.Color.Transparent
+        Me.regras_label.Font = New System.Drawing.Font("Arial", 12.75!, System.Drawing.FontStyle.Bold)
+        Me.regras_label.ForeColor = System.Drawing.Color.White
+        Me.regras_label.Location = New System.Drawing.Point(116, 170)
+        Me.regras_label.Name = "regras_label"
+        Me.regras_label.Size = New System.Drawing.Size(615, 137)
+        Me.regras_label.TabIndex = 7
+        Me.regras_label.Text = resources.GetString("regras_label.Text")
+        Me.regras_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'regras_label2
+        '
+        Me.regras_label2.BackColor = System.Drawing.Color.Transparent
+        Me.regras_label2.Font = New System.Drawing.Font("Arial", 12.75!, System.Drawing.FontStyle.Bold)
+        Me.regras_label2.ForeColor = System.Drawing.Color.White
+        Me.regras_label2.Location = New System.Drawing.Point(101, 287)
+        Me.regras_label2.Name = "regras_label2"
+        Me.regras_label2.Size = New System.Drawing.Size(615, 34)
+        Me.regras_label2.TabIndex = 8
+        Me.regras_label2.Text = "Única regra: não pesquise na internet!"
+        Me.regras_label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -140,6 +167,8 @@ Partial Class Form1
         Me.BackgroundImage = Global.trabalho2019.My.Resources.Resources.Futebol
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.regras_label2)
+        Me.Controls.Add(Me.regras_label)
         Me.Controls.Add(Me.Começar3)
         Me.Controls.Add(Me.Começar2)
         Me.Controls.Add(Me.Começar)
@@ -166,4 +195,6 @@ Partial Class Form1
     Friend WithEvents Timer1 As Timer
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents creditos As ToolStripMenuItem
+    Friend WithEvents regras_label As Label
+    Friend WithEvents regras_label2 As Label
 End Class

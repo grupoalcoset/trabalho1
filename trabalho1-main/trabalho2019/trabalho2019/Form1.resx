@@ -118,6 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>132, 17</value>
+  </metadata>
+  <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="regras_label.Text" xml:space="preserve">
+    <value>Este jogo tem 3 níveis de difficuldade, o nível fácil tem 14 perguntas com uma duração máxima de 100 segundos, o médio tem 10 perguntas com uma duração máxima de 60 segundos, e por último, o nível difícil tem apenas 6 perguntas com uma duração máxima de 40 segundos</value>
+  </data>
 </root>

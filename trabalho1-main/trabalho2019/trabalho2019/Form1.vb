@@ -682,6 +682,10 @@ Public Class Form1
         label1.BackColor = Color.Transparent
         label1.Font = New Font("Arial", 14, label1.Font.Style.Bold)
         label1.ForeColor = Color.White
+
+
+        regras_label.Visible = False
+        regras_label2.Visible = False
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -732,12 +736,26 @@ Public Class Form1
         voltar_button.Visible = False
         Regras.Visible = True
         Titulo.Visible = True
-
+        regras_label.Visible = False
+        regras_label2.Visible = False
         GameOver_label.Visible = False
         score_greet.Visible = False
         Correct_answers = 0
         label1.Visible = False
     End Sub
 
+    Private Sub creditos_Click(sender As Object, e As EventArgs) Handles creditos.Click
+        MessageBox.Show("Afonso Francisco e João")
+    End Sub
 
+    Private Sub Regras_Click(sender As Object, e As EventArgs) Handles Regras.Click
+
+        voltar_button.Visible = True
+        Regras.Visible = False
+        Titulo.Visible = False
+        start_button.Visible = False
+        regras_label.Visible = True
+        regras_label2.Visible = True
+
+    End Sub
 End Class
